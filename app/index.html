@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="/favicon.ico">
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="styles/main.css">
+    <script src="scripts/jquery.js"></script>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- endbuild -->
   </head>
@@ -15,7 +16,7 @@
 
     <div class="intro clearfix">
         <div class="intro-inner">
-            <h1>Something Here</h1>
+            <a href="index.html"><img src="images/ozone.png" alt="logo"></a>
         </div>
     </div>
     <header id="navigation">
@@ -316,8 +317,27 @@ Glen also regularly helps out in various youth and social projects.
         <div class="container" id="contact">
            <div class="row">
                <div class="ghost">
-                   <a href="" class="ghost-button">Send us a message</a>
-                   <a href="" class="ghost-button">Call the manager</a>
+            <!-- Button trigger modal -->
+            <button type="button" class="ghost-button" data-toggle="modal" data-target="#myModal">
+              Send us a message
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Send us a message</h4>
+                  </div>
+                  <div class="modal-body">
+                    <iframe frameborder="0" scrolling="no" src="https://docs.google.com/forms/d/17ZNwnyJyl1KBgjBeAOmU84tn1Anh2XRQjKJrYPI2sII/viewform?usp=send_form">
+                    </iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+                   <a href="tel:+919997977427" class="ghost-button">Call the manager </a>
                </div>
            </div>
             <div class="row" id="social">
@@ -337,31 +357,9 @@ Glen also regularly helps out in various youth and social projects.
         </div>
     </footer>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                                                    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
-                                                                     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-   <script>
-      $(document).ready(function() {
-
+<script src="scripts/modal.js"></script>
+<script>
+  $(document).ready(function() {
   $(window).scroll(function () {
       console.log($(window).scrollTop())
     if ($(window).scrollTop() > 580) {
@@ -372,7 +370,13 @@ Glen also regularly helps out in various youth and social projects.
     }
   });
 });
-    </script>
+
+</script>
+<script>
+    $('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').focus()
+  })
+</script>
 
 </body>
 </html>
